@@ -1,40 +1,92 @@
 body
-  font-size: 80%
-  font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif
+  background-image: url('../img/back.png')
+  background-repeat: repeat-x
+  background-position: center top
+  color: #333
+  font-size: 11px
+  height: auto
 
-table 
-  font-size: 1em
-    
-#trip_input
-  label
-    padding: 0px 5px
-  .labels
-    width: 60px
-    display: inline-block
+.border
+  border: 1px #000 solid
 
-#info 
-  width: 250px
-  font-size: 0.9em
-  margin-bottom: 10px
+.overlay
+  background: #ccc
+  opacity: 0.3
+  filter: alpha(opacity=30)  // For IE8 and earlier 
 
-#prev_school
-  color: #000
+.active_overlay
+  background: #c88
+  opacity: 0.5
+  filter: alpha(opacity=50)  // For IE8 and earlier 
+
+.hover_overlay
+  background: #88c
+  opacity: 0.5
+  filter: alpha(opacity=50)  // For IE8 and earlier 
 
 .right
   text-align: right
   margin: 2px
 
-.blob
-  padding: 5px
-  margin-bottom: 10px
-  display: table
+#main
+  background-image: url('../img/main.png')
+  background-position-y: -60px
+  background-repeat: no-repeat 
+  min-height: 900px 
+
+.hide
+  display: none 
+.spacer
+  min-height: 30px
   
-#trip_list
-  border-collapse: collapse
-  th, td
-    padding: 2px 5px
+.top_shelf
+  min-height: 100px
+  
+.mid_shelf
+  min-height: 165px
 
-.ui-button .ui-button-text
-  line-height: 1em
-  font-size: .8em
+.bottom_shelf
+  min-height: 380px
 
+#menu
+  min-height: 90px
+  margin-top: 15px
+  margin-right: 17px
+  
+#add_button
+  min-height: 60px
+  margin-right: 17px
+
+#list
+  min-height: 98px
+  margin-top: 10px
+  margin-right: 17px
+
+#trash
+  min-height: 103px
+  margin-right: 17px
+  
+#storage
+  height: 360px
+  width: 665px
+  overflow: auto
+  margin-top: 7px
+  margin-left: -24px
+  padding-top: 10px
+  padding-left: 40px
+  li
+    float: left
+    margin: 10px
+    padding-right: 5px
+    list-style-type: none
+
+#hidden_dialog
+  background: #3ff
+
+.ui-dialog
+  background: none
+  border: 0px
+  .ui-dialog-titlebar 
+    display: none
+  .ui-dialog-titlebar-close
+    display: none

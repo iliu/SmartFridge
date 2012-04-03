@@ -1,15 +1,57 @@
 %html
   %head
-    %title Mileage Calculator
+    %title Smart Fridge
     
     /Stylesheets
+    %link{:rel => "stylesheet", :href => "css/reset.css"}
+    %link{:rel => "stylesheet", :href => "css/text.css"}
+    %link{:rel => "stylesheet", :href => "css/960_24_col.css"}        
     %link{:rel => "stylesheet", :href => "css/ui-lightness/jquery-ui-1.8.9.custom.css"}
     %link{:rel => "stylesheet", :href => "css/layout.css"}
     
     /Javascripts
-    %script{:type => 'text/javascript', :src => 'js/jquery-1.4.4.min.js'}
-    %script{:type => 'text/javascript', :src => 'js/jquery-ui-1.8.9.custom.min.js'}
-    %script{:type => 'text/javascript', :src => 'js/logger.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery-1.7.1.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery-ui-1.8.18.custom.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery.ba-outside-events.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/dragdrop.js'}
   %body
-    #body
-      #{::Haml::Engine.new(File.read('src/haml/logger.html.haml'), instance_variable_get(:@haml_buffer).options).render}
+    #main.container_24
+      .spacer.grid_24
+
+      /TOP SHELF
+      .top_shelf.grid_24
+      .spacer.grid_24
+      
+      /STAPLE SECTION
+      .grid_24
+        .mid_shelf.grid_2.alpha.overlay
+          %a{:href => '#', :id => 'opener'}
+            open dialog
+        .mid_shelf.grid_22.omega.overlay
+
+      .spacer.grid_24      
+      /BOTTOM SHELF
+      .grid_24
+        /ITEMS
+        .grid_17.push_2.alpha
+          %ul#storage
+            - (0..9).each do 
+              %li
+                %img{:src => "img/1.jpeg", :width => "100", :height => "100"}
+              %li
+                %img{:src => "img/2.png", :width => "100", :height => "100"}
+
+
+        /MENU
+        .bottom_shelf.grid_5.push_2.omega
+          #menu
+          #add_button
+          #list
+          #trash
+               
+      .spacer.grid_24              
+    
+    #hidden_dialog.hide
+      test test!  
+/#body
+/#{::Haml::Engine.new(File.read('src/haml/logger.html.haml'), instance_variable_get(:@haml_buffer).options).render}
