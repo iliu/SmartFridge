@@ -1,0 +1,122 @@
+body {
+  background-image: url("../img/back.png");
+  background-repeat: repeat-x;
+  background-position: center top;
+  color: #333333;
+  font-size: 11px;
+  height: auto; }
+
+li {
+  list-style-type: none; }
+
+.border {
+  border: 1px black solid; }
+
+.overlay {
+  background: #cccccc;
+  opacity: 0.3;
+  filter: alpha(opacity=30); }
+
+.active_overlay {
+  background: #cc8888;
+  opacity: 0.5;
+  filter: alpha(opacity=50); }
+
+.hover_overlay {
+  background: #8888cc;
+  opacity: 0.5;
+  filter: alpha(opacity=50); }
+
+.right {
+  text-align: right;
+  margin: 2px; }
+
+#main {
+  background-image: url("../img/main.png");
+  background-position-y: -60px;
+  background-repeat: no-repeat;
+  min-height: 900px; }
+
+.hide {
+  display: none; }
+
+.spacer {
+  min-height: 30px; }
+
+.top_shelf {
+  min-height: 100px; }
+
+.mid_shelf {
+  min-height: 165px; }
+
+.bottom_shelf {
+  min-height: 380px; }
+
+#menu {
+  min-height: 90px;
+  margin-top: 15px;
+  margin-right: 17px; }
+
+#add_button {
+  min-height: 60px;
+  margin-right: 17px; }
+
+#list {
+  min-height: 98px;
+  margin-top: 10px;
+  margin-right: 17px; }
+
+#trash {
+  min-height: 103px;
+  margin-right: 17px; }
+
+#staple_prev {
+  position: absolute;
+  top: 230px; }
+
+#staple_next {
+  position: absolute;
+  top: 230px;
+  margin-left: 805px; }
+
+#staple {
+  height: 150px;
+  width: 774px;
+  margin-top: 10px;
+  margin-left: 33px; }
+  #staple li {
+    float: left;
+    margin: 10px;
+    padding-left: 12px;
+    padding-top: 10px;
+    list-style-type: none;
+    width: 120px;
+    height: 120px;
+    background: black; }
+
+#storage {
+  height: 360px;
+  width: 665px;
+  overflow: auto;
+  margin-top: 7px;
+  margin-left: -24px;
+  padding-top: 10px;
+  padding-left: 40px; }
+  #storage li {
+    float: left;
+    margin: 10px;
+    padding-right: 5px;
+    width: 100px;
+    height: 100px;
+    background: #888888; }
+
+#hidden_dialog {
+  background: #33ffff; }
+
+.ui-dialog {
+  background: none;
+  border: 0px; }
+  .ui-dialog .ui-dialog-titlebar {
+    display: none; }
+  .ui-dialog .ui-dialog-titlebar-close {
+    display: none; }
