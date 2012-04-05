@@ -7,12 +7,17 @@
     %link{:rel => "stylesheet", :href => "css/text.css"}
     %link{:rel => "stylesheet", :href => "css/960_24_col.css"}        
     %link{:rel => "stylesheet", :href => "css/ui-lightness/jquery-ui-1.8.9.custom.css"}
+    %link{:rel => "stylesheet", :href => "skins/tango/skin.css"}
     %link{:rel => "stylesheet", :href => "css/layout.css"}
     
     /Javascripts
     %script{:type => 'text/javascript', :src => 'js/jquery-1.7.1.min.js'}
     %script{:type => 'text/javascript', :src => 'js/jquery-ui-1.8.18.custom.min.js'}
     %script{:type => 'text/javascript', :src => 'js/jquery.ba-outside-events.min.js'}
+    -# %script{:type => 'text/javascript', :src => 'js/jcarousellite_1.0.1.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery.carouFredSel-5.5.0-packed.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery.easing.1.3.js'}      
+    %script{:type => 'text/javascript', :src => 'js/jquery.mousewheel.js'}      
     %script{:type => 'text/javascript', :src => 'js/dragdrop.js'}
   %body
     #main.container_24
@@ -27,9 +32,23 @@
         .mid_shelf.grid_2.alpha.overlay
           %a{:href => '#', :id => 'opener'}
             open dialog
-        .mid_shelf.grid_22.omega.overlay
+        .mid_shelf.grid_22.omega
+          #staple_prev prev
+          #staple_next next
+          %ul#staple
+            - (0..3).each do 
+              %li
+                %img{:src => "img/1.jpeg", :width => "110", :height => "110"}
+              %li
+                %img{:src => "img/2.png", :width => "110", :height => "110"}
 
-      .spacer.grid_24      
+
+      .spacer.grid_24
+      -# .grid_24
+      -# %ul#test.jcarousel-skin-tango
+      -# -(0..10).each do
+      -# %li test
+                
       /BOTTOM SHELF
       .grid_24
         /ITEMS
@@ -37,9 +56,10 @@
           %ul#storage
             - (0..9).each do 
               %li
-                %img{:src => "img/1.jpeg", :width => "100", :height => "100"}
+                %a{:onclick => "addStaple()"}
+                  %img{:src => "img/1.jpeg", :width => "90", :height => "90"}
               %li
-                %img{:src => "img/2.png", :width => "100", :height => "100"}
+                %img{:src => "img/2.png", :width => "90", :height => "90"}
 
 
         /MENU
