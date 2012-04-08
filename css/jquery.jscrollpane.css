@@ -23,7 +23,7 @@
 	right: 680px;
 	width: 16px;
 	height: 100%;
-	background: red;
+	background: transparent;
 }
 .jspHorizontalBar
 {
@@ -55,12 +55,18 @@
 .jspTrack
 {
 	background: #dde;
+  	border: 1px #333 solid; 
 	position: relative;
+	opacity: 0.5;
+  	filter: alpha(opacity=50);  // For IE8 and earlier
+
+
 }
 
 .jspDrag
 {
-	background: #bbd;
+	background: #888;
+	border: 1px #555 solid;
 	position: relative;
 	top: 0;
 	left: 0;
@@ -79,6 +85,7 @@
 	background: #50506d;
 	text-indent: -20000px;
 	display: block;
+	visibility: hidden;
 	cursor: pointer;
 }
 

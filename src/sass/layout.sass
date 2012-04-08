@@ -64,6 +64,7 @@ li
   #alert_button:hover
     width: 48px
     left: 15px
+    cursor: pointer
   #list_button
     background-image: url('../img/list.png')
     background-repeat: no-repeat
@@ -74,7 +75,8 @@ li
     left: 18px  
   #list_button:hover
     width: 48px
-    left: 15px    
+    left: 15px  
+    cursor: pointer  
     
 #staple
   .disabled
@@ -86,6 +88,9 @@ li
     top: 194px
     height: 100px
     width: 33px
+  .prev:hover
+    background-image: url('../img/left_hover.png')
+    cursor: pointer
   .next
     background-image: url('../img/right.png')
     position: absolute
@@ -93,12 +98,18 @@ li
     margin-left: 800px
     height: 100px
     width: 33px
+  .next:hover
+    background-image: url('../img/right_hover.png')
+    cursor: pointer
+        
   #staple_list
     height: 150px
     width: 774px
     margin-top: 10px
     margin-left: 33px
     li
+      background-image: url('../img/staple_icon_back.png')
+      background-repeat: no-repeat
       float: left
       margin: 10px
       padding-left: 12px
@@ -106,8 +117,18 @@ li
       list-style-type: none
       width: 120px
       height: 120px
-      background: #000  
-  
+      img
+        width: 100px
+        height: 90px
+      .title
+        margin-top: -8px
+        padding-right: 16px
+        text-align: center
+      .toolbar 
+        padding-right: 12px
+        .anchor
+          float: right
+
 
 .bottom_shelf
   min-height: 380px
@@ -133,45 +154,69 @@ li
   width: 150px
   margin-left: 14px
   margin-top: 3px
-  
+#add_button:hover
+  background-image: url('../img/add_hover.png')
+  cursor: pointer
+
 #list
-  background-image: url('../img/shopping.png')
+  background-image: url('../img/shopping_base.png')
   background-repeat: no-repeat
   width: 175px
   height: 105px
   margin-top: 9px
   margin-right: 17px
+  
+#list.list_active
+  background-image: url('../img/shopping.png')
+#list.list_hover
+  background-image: url('../img/shopping_hover.png')
+    
 #trash
-  background-image: url('../img/trash.png')
+  background-image: url('../img/trash_base.png')
   background-repeat: no-repeat
   width: 175px
   height: 104px
   margin-top: -6px
   margin-right: 17px
+#trash.trash_active
+  background-image: url('../img/trash.png')
+#trash.trash_hover
+  background-image: url('../img/trash_hover.png')
 
-#storage
-  height: 368px
-  width: 665px
-  overflow: auto
-  margin-top: 7px
-  margin-left: -10px
-  padding-top: 5px
-  padding-left: 40px
+#bottom
+  li:hover
+    cursor: move  
   li
+    background-image: url('../img/shelf_icon_back.png')
+    background-repeat: no-repeat
     float: left
     margin: 10px
     padding-right: 5px
     width: 100px
     height: 100px
-    background: #888
+    img
+      padding-left: 8px
+      width: 80
+      height: 60
+    .title
+      padding-right: 6px
+      text-align: center
+    .toolbar 
+      padding-right: 8px
+      padding-left: 4px
+      .anchor
+        float: right
+
+#shelf
+  height: 368px
+  width: 665px
+  margin-top: 7px
+  margin-left: -10px
+  padding-top: 5px
+  padding-left: 40px
+  margin-right: -20px
 
 #hidden_dialog
   background: #3ff
 
-.ui-dialog
-  background: none
-  border: 0px
-  .ui-dialog-titlebar 
-    display: none
-  .ui-dialog-titlebar-close
-    display: none
+

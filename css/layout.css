@@ -68,7 +68,8 @@ li {
     left: 18px; }
   .mid_shelf #alert_button:hover {
     width: 48px;
-    left: 15px; }
+    left: 15px;
+    cursor: pointer; }
   .mid_shelf #list_button {
     background-image: url("../img/list.png");
     background-repeat: no-repeat;
@@ -79,8 +80,11 @@ li {
     left: 18px; }
   .mid_shelf #list_button:hover {
     width: 48px;
-    left: 15px; }
+    left: 15px;
+    cursor: pointer; }
 
+#staple .disabled {
+  visibility: hidden; }
 #staple .prev {
   background-image: url("../img/left.png");
   background-position-x: -4px;
@@ -88,8 +92,9 @@ li {
   top: 194px;
   height: 100px;
   width: 33px; }
-#staple .disabled {
-  visibility: hidden; }
+#staple .prev:hover {
+  background-image: url("../img/left_hover.png");
+  cursor: pointer; }
 #staple .next {
   background-image: url("../img/right.png");
   position: absolute;
@@ -97,20 +102,35 @@ li {
   margin-left: 800px;
   height: 100px;
   width: 33px; }
+#staple .next:hover {
+  background-image: url("../img/right_hover.png");
+  cursor: pointer; }
 #staple #staple_list {
   height: 150px;
   width: 774px;
   margin-top: 10px;
   margin-left: 33px; }
   #staple #staple_list li {
+    background-image: url("../img/staple_icon_back.png");
+    background-repeat: no-repeat;
     float: left;
     margin: 10px;
     padding-left: 12px;
     padding-top: 10px;
     list-style-type: none;
     width: 120px;
-    height: 120px;
-    background: black; }
+    height: 120px; }
+    #staple #staple_list li img {
+      width: 100px;
+      height: 90px; }
+    #staple #staple_list li .title {
+      margin-top: -8px;
+      padding-right: 16px;
+      text-align: center; }
+    #staple #staple_list li .toolbar {
+      padding-right: 12px; }
+      #staple #staple_list li .toolbar .anchor {
+        float: right; }
 
 .bottom_shelf {
   min-height: 380px; }
@@ -137,45 +157,69 @@ li {
   margin-left: 14px;
   margin-top: 3px; }
 
+#add_button:hover {
+  background-image: url("../img/add_hover.png");
+  cursor: pointer; }
+
 #list {
-  background-image: url("../img/shopping.png");
+  background-image: url("../img/shopping_base.png");
   background-repeat: no-repeat;
   width: 175px;
   height: 105px;
   margin-top: 9px;
   margin-right: 17px; }
 
+#list.list_active {
+  background-image: url("../img/shopping.png"); }
+
+#list.list_hover {
+  background-image: url("../img/shopping_hover.png"); }
+
 #trash {
-  background-image: url("../img/trash.png");
+  background-image: url("../img/trash_base.png");
   background-repeat: no-repeat;
   width: 175px;
   height: 104px;
   margin-top: -6px;
   margin-right: 17px; }
 
-#storage {
+#trash.trash_active {
+  background-image: url("../img/trash.png"); }
+
+#trash.trash_hover {
+  background-image: url("../img/trash_hover.png"); }
+
+#bottom li:hover {
+  cursor: move; }
+#bottom li {
+  background-image: url("../img/shelf_icon_back.png");
+  background-repeat: no-repeat;
+  float: left;
+  margin: 10px;
+  padding-right: 5px;
+  width: 100px;
+  height: 100px; }
+  #bottom li img {
+    padding-left: 8px;
+    width: 80;
+    height: 60; }
+  #bottom li .title {
+    padding-right: 6px;
+    text-align: center; }
+  #bottom li .toolbar {
+    padding-right: 8px;
+    padding-left: 4px; }
+    #bottom li .toolbar .anchor {
+      float: right; }
+
+#shelf {
   height: 368px;
   width: 665px;
-  overflow: auto;
   margin-top: 7px;
   margin-left: -10px;
   padding-top: 5px;
-  padding-left: 40px; }
-  #storage li {
-    float: left;
-    margin: 10px;
-    padding-right: 5px;
-    width: 100px;
-    height: 100px;
-    background: #888888; }
+  padding-left: 40px;
+  margin-right: -20px; }
 
 #hidden_dialog {
   background: #33ffff; }
-
-.ui-dialog {
-  background: none;
-  border: 0px; }
-  .ui-dialog .ui-dialog-titlebar {
-    display: none; }
-  .ui-dialog .ui-dialog-titlebar-close {
-    display: none; }

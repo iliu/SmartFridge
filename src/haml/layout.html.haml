@@ -6,7 +6,7 @@
     %link{:rel => "stylesheet", :href => "css/reset.css"}
     %link{:rel => "stylesheet", :href => "css/text.css"}
     %link{:rel => "stylesheet", :href => "css/960_24_col.css"}        
-    -# %link{:rel => "stylesheet", :href => "css/ui-lightness/jquery-ui-1.8.9.custom.css"}
+    %link{:rel => "stylesheet", :href => "css/ui-lightness/jquery-ui-1.8.9.custom.css"}
     %link{:rel => "stylesheet", :href => "css/jquery.jscrollpane.css"}
     %link{:rel => "stylesheet", :href => "css/layout.css"}
     
@@ -37,26 +37,38 @@
           #staple_prev.prev 
           #staple_next.next 
           %ul#staple_list
-            - (0..3).each do 
+            - (0..7).each do 
               %li
-                %img{:src => "img/1.jpeg", :width => "110", :height => "110"}
-              %li
-                %img{:src => "img/2.png", :width => "110", :height => "110"}
+                .title EGGS
+                %img{:src => "img/2.png"}
+                .toolbar
+                  .anchor 
+                    %a{:href => "#"}
+                      unanchor
+                  .view
+                    %a{:href => "#", :onclick => "openItem()"} 
+                      view
 
       .spacer_bottom.grid_24
                 
       /BOTTOM SHELF
-      .grid_24
+      #bottom.grid_24
         /ITEMS
-        .grid_17.push_2.alpha
+        #shelf.grid_17.push_2.alpha
           %ul#storage
-            - (0..9).each do 
+            - (0..16).each do 
               %li
-                %a{:onclick => "addStaple()"}
-                  %img{:src => "img/1.jpeg", :width => "90", :height => "90"}
-              %li
-                %img{:src => "img/2.png", :width => "90", :height => "90"}
-
+                .title
+                  MILK
+                %img{:src => "img/1.jpeg"}
+                .toolbar
+                  .anchor
+                    %a{:href => "#"}
+                      anchor
+                  .view
+                    %a{:href => "#", :onclick => "openItem()"}
+                      view
+          
 
         /MENU
         .bottom_shelf.grid_5.push_2.omega
@@ -68,7 +80,13 @@
                
       .spacer.grid_24              
     
-    #hidden_dialog.hide
-      test test!  
+    #shopping_list.hide{:title => "Shopping List"}
+
+    #alerts_list.hide{:title => "Alerts"}
+      
+    #add_dialog.hide{:title => "Add Items"}  
+    
+    #item_dialog.hide{:title => "Milk"}  
+    
 /#body
 /#{::Haml::Engine.new(File.read('src/haml/logger.html.haml'), instance_variable_get(:@haml_buffer).options).render}
