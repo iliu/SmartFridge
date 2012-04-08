@@ -5,6 +5,11 @@
  */
 
 $(function() {
+	$('#storage').jScrollPane({
+		showArrows: true,			
+	}
+	);
+	
 	$dialog = $('#hidden_dialog');
 	$dialog.dialog({
 		autoOpen : false,
@@ -17,7 +22,7 @@ $(function() {
 		return false;
 	});
 
-	$('#opener').click(function() {
+	$('#alert_button').click(function() {
 		$dialog.dialog('open');
 		// prevent the default action, e.g., following a link
 		return false;
@@ -51,7 +56,7 @@ $(function() {
 		}
 	});
 
-	$("#staple").carouFredSel({
+	$("#staple_list").carouFredSel({
 		prev : '#staple_prev',
 		next : '#staple_next',
 		auto : false,
@@ -65,11 +70,9 @@ $(function() {
 		margin		: 0,
 		borderWidth	: 0
 	}, 500, function() {
-		$("#staple").trigger("removeItem", $(this));
+		$("#staple_list").trigger("removeItem", $(this));
 	}); });
 	
-	
-	$("staple").sortable();
 	
 	$list = $("#list");
 	$list.droppable({
@@ -95,5 +98,5 @@ function addItem($item) {
 }
 
 function addStaple(){
-	$("#staple").trigger("insertItem", ["<li></li>", 0, true, 0]);
+	$("#staple_list").trigger("insertItem", ["<li></li>", 0, true, 0]);
 }
