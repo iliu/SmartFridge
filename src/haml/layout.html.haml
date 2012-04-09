@@ -6,7 +6,7 @@
     %link{:rel => "stylesheet", :href => "css/reset.css"}
     %link{:rel => "stylesheet", :href => "css/text.css"}
     %link{:rel => "stylesheet", :href => "css/960_24_col.css"}        
-    %link{:rel => "stylesheet", :href => "css/ui-lightness/jquery-ui-1.8.9.custom.css"}
+    %link{:rel => "stylesheet", :href => "css/custom-theme/jquery-ui-1.8.18.custom.css"}
     %link{:rel => "stylesheet", :href => "css/jquery.jscrollpane.css"}
     %link{:rel => "stylesheet", :href => "css/layout.css"}
     
@@ -19,12 +19,54 @@
     %script{:type => 'text/javascript', :src => 'js/jquery.mousewheel.js'}
     %script{:type => 'text/javascript', :src => 'js/jquery.jscrollpane.min.js'}            
     %script{:type => 'text/javascript', :src => 'js/dragdrop.js'}
+      
+    :ruby
+       @staple_items = [
+        ["Bread", "BREAD.jpg", "out"],
+        ["Butter", "BUTTER.jpg", "full"],
+        ["Eggs", "EGGS.jpg", "full"],
+        ["Milk", "MILK.jpg", "half"],
+        ["Cereal", "CEREAL.jpg", "half"],            
+        ["Orange Juice", "ORANGE JUICE.jpg", "half"],    
+      ]
+      
+      @shelf_items = [
+        ["Chicken", "CHICKEN.jpg", "half"],     
+        ["Bacon", "BACON.jpg", "out"],
+        ["Broccoli", "BROCCOLI.jpg", "full"],
+        ["Banana", "BANANA.jpg", "full"],
+        ["Onion", "ONION.jpg", "half"],
+        ["Pasta", "PASTA.jpg", "half"],    
+        ["Lettuce", "LETTUCE.jpg", "half"],
+        ["Honey", "HONEY.jpg", "out"],
+        ["Salmon", "SALMON.jpg", "full"],
+        ["Rice", "RICE.jpg", "full"],
+        ["Potato", "POTATO.jpg", "half"],
+        ["Peas", "PEAS.jpg", "half"],    
+        ["Strawberry", "STRAWBERRY.jpg", "half"],    
+        ["Watermelon", "WATERMELON.jpg", "out"],
+        ["Corn", "CORN.jpg", "full"],
+        ["Lemon", "LEMON.jpg", "full"],
+        ["Yogurt", "YOGURT.jpg", "half"],
+        ["Peppers", "PEPPERS.jpg", "half"],    
+        ["Carrots", "CARROTS.jpg", "half"],    
+      ]
+      
   %body
-    #main-bare.container_24
-      .spacer_top.grid_24
 
+    #main-bare.container_24
+      #alert.grid_24.hide
+        %span.ui-corner-all.ui-state-highlight
+          hi
+      .clear
+      .spacer_top.grid_24
       /TOP SHELF
       .top_shelf.grid_24
+        .nav.grid_2.push_18
+          INVENTORY
+        .nav.grid_2.push_19
+          RECIPES
+      .clear
       .spacer_top.grid_24
       
       /MID SHELF
@@ -37,17 +79,18 @@
           #staple_prev.prev 
           #staple_next.next 
           %ul#staple_list
-            - (0..7).each do 
+            - @staple_items.each do |i| 
               %li
-                .title EGGS
-                %img{:src => "img/2.png"}
+                .title 
+                  = i[0]
+                %img{:src => "img/items/#{i[1]}"}
                 .toolbar
                   .anchor 
-                    %a{:href => "#"}
-                      unanchor
+                    %a{:href => "#", :onclick => "stapleToStorage($(this))"}
+                      %span.ui-icon.ui-icon-locked
                   .view
-                    %a{:href => "#", :onclick => "openItem()"} 
-                      view
+                    %a{:href => "#", :onclick => "openItem()"}
+                      %span.ui-icon.ui-icon-zoomin 
 
       .spacer_bottom.grid_24
                 
@@ -56,18 +99,18 @@
         /ITEMS
         #shelf.grid_17.push_2.alpha
           %ul#storage
-            - (0..16).each do 
+            - @shelf_items.each do |i| 
               %li
                 .title
-                  MILK
-                %img{:src => "img/1.jpeg"}
+                  = i[0]
+                %img{:src => "img/items/#{i[1]}"}
                 .toolbar
                   .anchor
-                    %a{:href => "#"}
-                      anchor
+                    %a{:href => "#", :onclick => "storageToStaple($(this))"}
+                      %span.ui-icon.ui-icon-unlocked
                   .view
                     %a{:href => "#", :onclick => "openItem()"}
-                      view
+                      %span.ui-icon.ui-icon-zoomin
           
 
         /MENU
@@ -77,8 +120,36 @@
           #add_button
           #list
           #trash
-               
-      .spacer.grid_24              
+        
+      .clear       
+      .spacer_bottom.grid_24   
+      .spacer_bottom.grid_24   
+      
+      .grid_4.push_8
+        %a{:href => "#"}
+          %img{:src => "img/iphone.png"}
+      
+      #google_play.grid_4.push_8
+        %a{:href => "#"}
+          %img{:src => "img/google_play.png"}
+      
+      .clear
+      
+      .spacer_bottom.grid_24   
+      
+      #bottom_links.grid_24
+        %a{:href => "#"} About 
+        |
+        %a{:href => "#"} Careers
+        |
+        %a{:href => "#"} Contact
+        |
+        %a{:href => "#"} API
+
+      #copyright.grid_24
+        SmartFridge &copy; 2012&nbsp;&nbsp;|&nbsp;&nbsp;Designed by Isaac Liu
+
+
     
     #shopping_list.hide{:title => "Shopping List"}
 

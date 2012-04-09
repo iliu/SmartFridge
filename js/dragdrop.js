@@ -5,6 +5,15 @@
  */
 
 $(function() {
+	// $("li", "#staple_list").draggable({
+	// revert : "invalid", // when not dropped, the item will revert back to its initial position
+	// containment : "#main",
+	// scroll : false,
+	// helper : 'clone',
+	// appendTo : '#bottom',
+	// })
+	$("#staple_list").sortable();
+	$( "#staple_list" ).disableSelection();
 
 	$("#staple_list").carouFredSel({
 		prev : '#staple_prev',
@@ -17,26 +26,32 @@ $(function() {
 	$('#shelf').jScrollPane({
 		showArrows : true,
 	});
-	
-	
 	$item_dialog = $('#item_dialog');
 	$item_dialog.dialog({
 		autoOpen : false,
 		draggable : false,
 		resizable : false,
 		modal : true,
+		buttons : {
+			Close : function() {
+				$(this).dialog("close");
+			}
+		}
 	});
-	
 	$add_dialog = $('#add_dialog');
 	$add_dialog.dialog({
 		autoOpen : false,
 		draggable : false,
 		resizable : false,
-		minHeight : 650,
 		minWidth : 550,
-		modal : true
+		modal : true,
+		buttons : {
+			Close : function() {
+				$(this).dialog("close");
+			}
+		}
 	});
-	
+
 	$('#add_button').click(function() {
 		$add_dialog.dialog('open');
 		// prevent the default action, e.g., following a link
@@ -47,9 +62,13 @@ $(function() {
 		autoOpen : false,
 		draggable : false,
 		resizable : false,
-		minHeight : 650,
 		minWidth : 550,
 		modal : true,
+		buttons : {
+			Close : function() {
+				$(this).dialog("close");
+			}
+		}
 	});
 	$('#alert_button').click(function() {
 		$alerts_dialog.dialog('open');
@@ -61,14 +80,25 @@ $(function() {
 		autoOpen : false,
 		draggable : false,
 		resizable : false,
-		minHeight : 600,
 		minWidth : 550,
-		modal : true
-	}).bind('clickoutside', function(e) {
-		$target = $(e.target);
-		$shop_dialog.dialog('close');
-		return false;
+		modal : true,
+		buttons : {
+			Close : function() {
+				$(this).dialog("close");
+			},
+			Email : function() {
+				$(this).dialog("close");
+			},
+			SMS : function() {
+				$(this).dialog("close");
+			}
+		}
 	});
+	// .bind('clickoutside', function(e) {
+		// $target = $(e.target);
+		// $shop_dialog.dialog('close');
+		// return false;
+	// });
 	$('#list_button').click(function() {
 		$shop_dialog.dialog('open');
 		// prevent the default action, e.g., following a link
@@ -82,10 +112,9 @@ $(function() {
 		helper : 'clone',
 		appendTo : '#bottom',
 	});
-		
 	$trash = $("#trash");
 	$trash.droppable({
-		accept : "li",
+		accept : "#storage li",
 		activeClass : "trash_active",
 		hoverClass : "trash_hover",
 		drop : function(event, ui) {
@@ -95,7 +124,7 @@ $(function() {
 	});
 	$list = $("#list");
 	$list.droppable({
-		accept : "li",
+		accept : "#storage li",
 		activeClass : "list_active",
 		hoverClass : "list_hover",
 		drop : function(event, ui) {
@@ -104,28 +133,39 @@ $(function() {
 		}
 	});
 
-	$("#staple .anchor a").click(function() {
-		$item = $(this).parent().parent().parent();
-		stapleToStorage($item);
-	});
-		
-	$("#storage .anchor a").click(function() {
-		$item = $(this).parent().parent().parent(); 
-		storageToStaple($item);
-	});
+	// $("#staple .anchor a").click(function() {
+		// stapleToStorage($(this));
+	// });
+	// $("#storage .anchor a").click(function() {
+		// storageToStaple($(this));
+	// });
 });
 
+function toggleAlert($text){
+	$("#alert").children("span").html($text);
+	$("#alert").fadeIn(1000, function() {
+		$("#alert").fadeOut(1000);
+	});
+}
 
-function storageToStaple($item) {
+function storageToStaple($this) {
+	
+	$this.attr("onclick", "stapleToStorage($(this))");
+	$this.children("span").removeClass('ui-icon-unlocked').addClass('ui-icon-locked');
+	$item = $this.parent().parent().parent();
+	$add = $item.clone();
 	$item.fadeOut(1000, function() {
-		addStaple($item);
+		addStaple($add);
 		$('#shelf').jScrollPane({
 			showArrows : true,
 		});
 	});
 }
 
-function stapleToStorage($item) {
+function stapleToStorage($this) {
+	$this.attr("onclick", "storageToStaple($(this))");
+	$this.children("span").removeClass('ui-icon-locked').addClass('ui-icon-unlocked');
+	$item = $this.parent().parent().parent();
 	$add = $item.clone();
 
 	$item.animate({
@@ -142,6 +182,7 @@ function stapleToStorage($item) {
 
 function addToShopping($item) {
 	$item.effect('bounce');
+	toggleAlert("Item added to shopping list")
 }
 
 function deleteStorage($item) {
@@ -151,17 +192,20 @@ function deleteStorage($item) {
 			showArrows : true,
 		})
 	});
+	toggleAlert("Item removed")
 }
 
 function addStaple($item) {
 	$("#staple_list").trigger("insertItem", [$item.fadeIn(1000), 0, true, 0]);
 	$("#staple_list").trigger("slideToPage", 0);
+	$("#staple_list").sortable();
 }
-function addStorage($item) {	
-	$item.fadeIn(1000).appendTo($("#storage"));
+
+function addStorage($item) {
+	$item.fadeIn(1000).prependTo($("#storage"));
 	$('#shelf').jScrollPane({
 		showArrows : true,
-	}).data('jsp').scrollToPercentY(100);
+	}).data('jsp').scrollToPercentY(0);
 
 	$("li", "#storage").draggable({
 		revert : "invalid", // when not dropped, the item will revert back to its initial position

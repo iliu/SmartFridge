@@ -11,22 +11,18 @@ li
 
 .border
   border: 1px #000 solid
-
 .overlay
   background: #ccc
   opacity: 0.3
   filter: alpha(opacity=30)  // For IE8 and earlier 
-
 .active_overlay
   background: #c88
   opacity: 0.5
   filter: alpha(opacity=50)  // For IE8 and earlier 
-
 .hover_overlay
   background: #88c
   opacity: 0.5
   filter: alpha(opacity=50)  // For IE8 and earlier 
-
 .right
   text-align: right
   margin: 2px
@@ -49,7 +45,12 @@ li
 .spacer_bottom
   min-height: 17px  
 .top_shelf
-  min-height: 100px
+  height: 100px
+.nav
+  margin-top: 50px
+  text-align: center
+  font-size: 1.4em
+  color: #f1bf8f  
   
 .mid_shelf
   min-height: 165px
@@ -117,6 +118,7 @@ li
       list-style-type: none
       width: 120px
       height: 120px
+      cursor: move
       img
         width: 100px
         height: 90px
@@ -128,6 +130,7 @@ li
         padding-right: 12px
         .anchor
           float: right
+          padding-right: 5px
 
 
 .bottom_shelf
@@ -216,7 +219,34 @@ li
   padding-left: 40px
   margin-right: -20px
 
-#hidden_dialog
-  background: #3ff
+#google_play
+  padding-left: 10px
 
+#bottom_links
+  text-align: center
+  padding-bottom: 6px
+  color: white
+  a
+    color: white
+    padding-left: 10px
+    padding-right: 10px
+    text-decoration: none
+  a:hover
+    color: #aaa
+    
+#copyright
+  text-align: center
+  color: white
+  padding-left: 13px
+  
+#alert
+  position: absolute
+  top: 330px
+  text-align: center
+  opacity: 0.7
+  filter: alpha(opacity=70)  // For IE8 and earlier 
+  span
+    margin: 0 auto
+    padding: 5px 20px
 
+  

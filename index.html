@@ -5,7 +5,7 @@
     <link href='css/reset.css' rel='stylesheet' />
     <link href='css/text.css' rel='stylesheet' />
     <link href='css/960_24_col.css' rel='stylesheet' />
-    <link href='css/ui-lightness/jquery-ui-1.8.9.custom.css' rel='stylesheet' />
+    <link href='css/custom-theme/jquery-ui-1.8.18.custom.css' rel='stylesheet' />
     <link href='css/jquery.jscrollpane.css' rel='stylesheet' />
     <link href='css/layout.css' rel='stylesheet' />
     <!-- Javascripts -->
@@ -20,9 +20,23 @@
   </head>
   <body>
     <div class='container_24' id='main-bare'>
+      <div class='grid_24 hide' id='alert'>
+        <span class='ui-corner-all ui-state-highlight'>
+          hi
+        </span>
+      </div>
+      <div class='clear'></div>
       <div class='spacer_top grid_24'></div>
       <!-- TOP SHELF -->
-      <div class='top_shelf grid_24'></div>
+      <div class='top_shelf grid_24'>
+        <div class='nav grid_2 push_18'>
+          INVENTORY
+        </div>
+        <div class='nav grid_2 push_19'>
+          RECIPES
+        </div>
+      </div>
+      <div class='clear'></div>
       <div class='spacer_top grid_24'></div>
       <!-- MID SHELF -->
       <div class='grid_24'>
@@ -36,129 +50,109 @@
           <div class='next' id='staple_next'></div>
           <ul id='staple_list'>
             <li>
-              <div class='title'>EGGS</div>
-              <img src='img/2.png' />
+              <div class='title'>
+                Bread
+              </div>
+              <img src='img/items/BREAD.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    unanchor
+                  <a href='#' onclick='stapleToStorage($(this))'>
+                    <span class='ui-icon ui-icon-locked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
-              <div class='title'>EGGS</div>
-              <img src='img/2.png' />
+              <div class='title'>
+                Butter
+              </div>
+              <img src='img/items/BUTTER.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    unanchor
+                  <a href='#' onclick='stapleToStorage($(this))'>
+                    <span class='ui-icon ui-icon-locked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
-              <div class='title'>EGGS</div>
-              <img src='img/2.png' />
+              <div class='title'>
+                Eggs
+              </div>
+              <img src='img/items/EGGS.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    unanchor
+                  <a href='#' onclick='stapleToStorage($(this))'>
+                    <span class='ui-icon ui-icon-locked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
-              <div class='title'>EGGS</div>
-              <img src='img/2.png' />
+              <div class='title'>
+                Milk
+              </div>
+              <img src='img/items/MILK.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    unanchor
+                  <a href='#' onclick='stapleToStorage($(this))'>
+                    <span class='ui-icon ui-icon-locked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
-              <div class='title'>EGGS</div>
-              <img src='img/2.png' />
+              <div class='title'>
+                Cereal
+              </div>
+              <img src='img/items/CEREAL.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    unanchor
+                  <a href='#' onclick='stapleToStorage($(this))'>
+                    <span class='ui-icon ui-icon-locked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
-              <div class='title'>EGGS</div>
-              <img src='img/2.png' />
-              <div class='toolbar'>
-                <div class='anchor'>
-                  <a href='#'>
-                    unanchor
-                  </a>
-                </div>
-                <div class='view'>
-                  <a href='#' onclick='openItem()'>
-                    view
-                  </a>
-                </div>
+              <div class='title'>
+                Orange Juice
               </div>
-            </li>
-            <li>
-              <div class='title'>EGGS</div>
-              <img src='img/2.png' />
+              <img src='img/items/ORANGE JUICE.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    unanchor
+                  <a href='#' onclick='stapleToStorage($(this))'>
+                    <span class='ui-icon ui-icon-locked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class='title'>EGGS</div>
-              <img src='img/2.png' />
-              <div class='toolbar'>
-                <div class='anchor'>
-                  <a href='#'>
-                    unanchor
-                  </a>
-                </div>
-                <div class='view'>
-                  <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
@@ -174,306 +168,342 @@
           <ul id='storage'>
             <li>
               <div class='title'>
-                MILK
+                Chicken
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/CHICKEN.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Bacon
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/BACON.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Broccoli
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/BROCCOLI.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Banana
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/BANANA.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Onion
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/ONION.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Pasta
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/PASTA.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Lettuce
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/LETTUCE.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Honey
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/HONEY.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Salmon
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/SALMON.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Rice
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/RICE.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Potato
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/POTATO.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Peas
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/PEAS.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Strawberry
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/STRAWBERRY.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Watermelon
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/WATERMELON.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Corn
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/CORN.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Lemon
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/LEMON.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
             </li>
             <li>
               <div class='title'>
-                MILK
+                Yogurt
               </div>
-              <img src='img/1.jpeg' />
+              <img src='img/items/YOGURT.jpg' />
               <div class='toolbar'>
                 <div class='anchor'>
-                  <a href='#'>
-                    anchor
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
                   </a>
                 </div>
                 <div class='view'>
                   <a href='#' onclick='openItem()'>
-                    view
+                    <span class='ui-icon ui-icon-zoomin'></span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class='title'>
+                Peppers
+              </div>
+              <img src='img/items/PEPPERS.jpg' />
+              <div class='toolbar'>
+                <div class='anchor'>
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
+                  </a>
+                </div>
+                <div class='view'>
+                  <a href='#' onclick='openItem()'>
+                    <span class='ui-icon ui-icon-zoomin'></span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class='title'>
+                Carrots
+              </div>
+              <img src='img/items/CARROTS.jpg' />
+              <div class='toolbar'>
+                <div class='anchor'>
+                  <a href='#' onclick='storageToStaple($(this))'>
+                    <span class='ui-icon ui-icon-unlocked'></span>
+                  </a>
+                </div>
+                <div class='view'>
+                  <a href='#' onclick='openItem()'>
+                    <span class='ui-icon ui-icon-zoomin'></span>
                   </a>
                 </div>
               </div>
@@ -490,7 +520,33 @@
           <div id='trash'></div>
         </div>
       </div>
-      <div class='spacer grid_24'></div>
+      <div class='clear'></div>
+      <div class='spacer_bottom grid_24'></div>
+      <div class='spacer_bottom grid_24'></div>
+      <div class='grid_4 push_8'>
+        <a href='#'>
+          <img src='img/iphone.png' />
+        </a>
+      </div>
+      <div class='grid_4 push_8' id='google_play'>
+        <a href='#'>
+          <img src='img/google_play.png' />
+        </a>
+      </div>
+      <div class='clear'></div>
+      <div class='spacer_bottom grid_24'></div>
+      <div class='grid_24' id='bottom_links'>
+        <a href='#'>About</a>
+        |
+        <a href='#'>Careers</a>
+        |
+        <a href='#'>Contact</a>
+        |
+        <a href='#'>API</a>
+      </div>
+      <div class='grid_24' id='copyright'>
+        SmartFridge &copy; 2012&nbsp;&nbsp;|&nbsp;&nbsp;Designed by Isaac Liu
+      </div>
     </div>
     <div class='hide' id='shopping_list' title='Shopping List'></div>
     <div class='hide' id='alerts_list' title='Alerts'></div>

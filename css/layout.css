@@ -54,7 +54,13 @@ li {
   min-height: 17px; }
 
 .top_shelf {
-  min-height: 100px; }
+  height: 100px; }
+
+.nav {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 1.4em;
+  color: #f1bf8f; }
 
 .mid_shelf {
   min-height: 165px; }
@@ -119,7 +125,8 @@ li {
     padding-top: 10px;
     list-style-type: none;
     width: 120px;
-    height: 120px; }
+    height: 120px;
+    cursor: move; }
     #staple #staple_list li img {
       width: 100px;
       height: 90px; }
@@ -130,7 +137,8 @@ li {
     #staple #staple_list li .toolbar {
       padding-right: 12px; }
       #staple #staple_list li .toolbar .anchor {
-        float: right; }
+        float: right;
+        padding-right: 5px; }
 
 .bottom_shelf {
   min-height: 380px; }
@@ -221,5 +229,32 @@ li {
   padding-left: 40px;
   margin-right: -20px; }
 
-#hidden_dialog {
-  background: #33ffff; }
+#google_play {
+  padding-left: 10px; }
+
+#bottom_links {
+  text-align: center;
+  padding-bottom: 6px;
+  color: white; }
+  #bottom_links a {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none; }
+  #bottom_links a:hover {
+    color: #aaaaaa; }
+
+#copyright {
+  text-align: center;
+  color: white;
+  padding-left: 13px; }
+
+#alert {
+  position: absolute;
+  top: 330px;
+  text-align: center;
+  opacity: 0.7;
+  filter: alpha(opacity=70); }
+  #alert span {
+    margin: 0 auto;
+    padding: 5px 20px; }
