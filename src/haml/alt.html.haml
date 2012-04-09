@@ -1,0 +1,243 @@
+-# ( must ) -a/b test - change icon to buttons, 
+
+
+%html
+  %head
+    %title Smart Fridge
+    
+    /Stylesheets
+    %link{:rel => "stylesheet", :href => "css/reset.css"}
+    %link{:rel => "stylesheet", :href => "css/text.css"}
+    %link{:rel => "stylesheet", :href => "css/960_24_col.css"}        
+    %link{:rel => "stylesheet", :href => "css/custom-theme/jquery-ui-1.8.18.custom.css"}
+    %link{:rel => "stylesheet", :href => "css/jquery.jscrollpane.css"}
+    %link{:rel => "stylesheet", :href => "css/layout.css"}
+    
+    /Javascripts
+    %script{:type => 'text/javascript', :src => 'js/jquery-1.7.1.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery-ui-1.8.18.custom.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery.ba-outside-events.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery.carouFredSel-5.5.0-packed.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery.easing.1.3.js'}      
+    %script{:type => 'text/javascript', :src => 'js/jquery.mousewheel.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery.jscrollpane.min.js'}            
+    %script{:type => 'text/javascript', :src => 'js/dragdrop.js'}
+
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-21450395-1']);
+      _gaq.push(['_setDomainName', 'calnpd.com']); 
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+
+    :ruby
+       @staple_items = [
+        ["Bread", "BREAD.jpg", "out"],
+        ["Butter", "BUTTER.jpg", "full"],
+        ["Eggs", "EGGS.jpg", "full"],
+        ["Milk", "MILK.jpg", "half"],
+        ["Cereal", "CEREAL.jpg", "half"],            
+        ["Orange Juice", "ORANGE JUICE.jpg", "half"],    
+      ]
+      
+      @shelf_items = [
+        ["Chicken", "CHICKEN.jpg", "half"],     
+        ["Bacon", "BACON.jpg", "out"],
+        ["Broccoli", "BROCCOLI.jpg", "full"],
+        ["Banana", "BANANA.jpg", "full"],
+        ["Onion", "ONION.jpg", "half"],
+        ["Pasta", "PASTA.jpg", "half"],    
+        ["Lettuce", "LETTUCE.jpg", "half"],
+        ["Honey", "HONEY.jpg", "out"],
+        ["Salmon", "SALMON.jpg", "full"],
+        ["Rice", "RICE.jpg", "full"],
+        ["Potato", "POTATO.jpg", "half"],
+        ["Peas", "PEAS.jpg", "half"],    
+        ["Strawberry", "STRAWBERRY.jpg", "half"],    
+        ["Watermelon", "WATERMELON.jpg", "out"],
+        ["Corn", "CORN.jpg", "full"],
+        ["Lemon", "LEMON.jpg", "full"],
+        ["Yogurt", "YOGURT.jpg", "half"],
+        ["Peppers", "PEPPERS.jpg", "half"],    
+        ["Carrots", "CARROTS.jpg", "half"],    
+      ]
+
+      @shopping_list = [
+        ["Onion", "ONION.jpg", "half"],    
+        ["Banana", "BANANA.jpg", "full"],
+        ["Rice", "RICE.jpg", "full"], 
+        ["Watermelon", "WATERMELON.jpg", "out"],
+        ["Potato", "POTATO.jpg", "half"],        
+      ]
+      
+      
+  %body
+
+    #main-bare.container_24
+      #alert.grid_24.hide
+        %span.ui-corner-all.ui-state-highlight
+          hi
+      .clear
+      .spacer_top.grid_24
+      /TOP SHELF
+      .top_shelf.grid_24
+        .nav.grid_2.push_18
+          INVENTORY
+        .nav.grid_2.push_19
+          RECIPES
+      .clear
+      .spacer_top.grid_24
+      
+      /MID SHELF
+      .grid_24
+        .mid_shelf.grid_2.alpha
+          #alert_button
+          #list_button
+        /STAPLE SECTION  
+        #staple.mid_shelf.grid_22.omega
+          #staple_prev.prev 
+          #staple_next.next 
+          %ul#staple_list
+            - @staple_items.each do |i| 
+              %li
+                .title 
+                  = i[0]
+                %img{:src => "img/items/#{i[1]}"}
+                .toolbar
+                  .anchor 
+                    %a{:href => "#", :onclick => "stapleToStorage($(this))"}
+                      %span.ui-icon.ui-icon-locked
+                  .view
+                    %a{:href => "#", :onclick => "openItem()"}
+                      %span.ui-icon.ui-icon-zoomin 
+
+      .spacer_bottom.grid_24
+                
+      /BOTTOM SHELF
+      #bottom.grid_24
+        /ITEMS
+        #shelf.grid_17.push_2.alpha
+          %ul#storage
+            - @shelf_items.each do |i| 
+              %li
+                .title
+                  = i[0]
+                %img{:src => "img/items/#{i[1]}"}
+                .toolbar
+                  .anchor
+                    %a{:href => "#", :onclick => "storageToStaple($(this))"}
+                      %span.ui-icon.ui-icon-unlocked
+                  .view
+                    %a{:href => "#", :onclick => "openItem()"}
+                      %span.ui-icon.ui-icon-zoomin
+          
+
+        /MENU
+        .bottom_shelf.grid_5.push_2.omega
+          #menu
+            %input#search{:value => "search", :size => "24"}
+          #add_button
+          #list
+            .drop_text
+              Drop here to add item to shopping list
+          #trash
+            .drop_text
+              Drop here to remove item
+        
+      .clear       
+      .spacer_bottom.grid_24   
+      .spacer_bottom.grid_24   
+      .grid_4.push_8
+        %a{:href => "#"}
+          %img{:src => "img/iphone.png"}
+      
+      #google_play.grid_4.push_8
+        %a{:href => "#"}
+          %img{:src => "img/google_play.png"}
+      
+      .clear
+      .spacer_bottom.grid_24   
+      
+      #bottom_links.grid_24
+        %a{:href => "#"} About 
+        |
+        %a{:href => "#"} Careers
+        |
+        %a{:href => "#"} Contact
+        |
+        %a{:href => "#"} API
+
+      #copyright.grid_24
+        SmartFridge &copy; 2012&nbsp;&nbsp;|&nbsp;&nbsp;Designed by Isaac Liu
+
+    #shopping_list.mydialog.hide{:title => "Shopping List"}
+      %ul
+        - @shopping_list.each do |i| 
+          %li
+            %input{:type => 'checkbox'} 
+            = i[0]
+
+    #alerts_list.mydialog.hide{:title => "Alerts"}
+      %ul
+        %li
+          #itemalert.radioset
+            %input{:type => 'radio', :id => 'item_expire_email', :name => 'radio_expire'}
+            %label{:for => 'item_expire_email'} Email
+            %input{:type => 'radio', :id => 'item_expire_sms', :name => 'radio_expire'}
+            %label{:for => 'item_expire_sms'} SMS
+            %input{:type => 'radio', :id => 'item_expire_web', :name => 'radio_expire', :checked => "checked"}
+            %label{:for => 'item_expire_web'} Web
+          Item expired
+ 
+        %li
+          #staplealert.radioset
+            %input{:type => 'radio', :id => 'staple_expire_email', :name => 'radio_staple'}
+            %label{:for => 'staple_expire_email'} Email
+            %input{:type => 'radio', :id => 'staple_expire_sms', :name => 'radio_staple', :checked => "checked"}
+            %label{:for => 'staple_expire_sms'} SMS
+            %input{:type => 'radio', :id => 'staple_expire_web', :name => 'radio_staple'}
+            %label{:for => 'staple_expire_web'} Web
+          Staple item expiring
+          
+        %li
+          #listalert.radioset
+            %input{:type => 'radio', :id => 'list_expire_email', :name => 'radio_list', :checked => "checked"}
+            %label{:for => 'list_expire_email'} Email
+            %input{:type => 'radio', :id => 'list_expire_sms', :name => 'radio_list'}
+            %label{:for => 'list_expire_sms'} SMS
+            %input{:type => 'radio', :id => 'list_expire_web', :name => 'radio_list'}
+            %label{:for => 'list_expire_web'} Web
+          Recieved shared list
+      
+    #add_dialog.mydialog.hide{:title => "Add Items"}
+      %input.ui-widget-content.ui-corner-all{:type => "text", :value => " search", :name => "Search", :id => "add_search"}   
+      %ul
+        - @shelf_items.each do |i| 
+          %li
+            .title
+              = i[0]
+            %img{:src => "img/items/#{i[1]}"}
+ 
+
+    #item_dialog.mydialog.hide{:title => "Milk"}
+      %img{:src => 'img/items/MILK.jpg'}
+      #item_description  
+        %label{:for => "quantity"} Quantity
+        #quantity_bar
+        %label{:for => "exp_date"} Expiration Date
+        .ui-widget-content.ui-corner-all
+          %span Saturday, April, 14, 2012 [ in 5 days ] 
+        %label{:for => "tags"} Tags
+        #item_tags
+          %span.ui-state-highlight.ui-corner-all Staple
+          %span.ui-state-default.ui-corner-all Dairy
+
+    
+/#body
+/#{::Haml::Engine.new(File.read('src/haml/logger.html.haml'), instance_variable_get(:@haml_buffer).options).render}

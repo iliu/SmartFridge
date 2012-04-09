@@ -7,10 +7,13 @@ SASS_OUT_DIR = css/
 SASS_SRC = $(wildcard $(SASS_SRC_DIR)*.sass)
 SASSTARGETS = $(patsubst $(SASS_SRC_DIR)%.sass,$(SASS_OUT_DIR)%.css,$(wildcard $(SASS_SRC_DIR)*.sass))
 
-all: index.html SASS_OBJS
+all: index.html alt.html SASS_OBJS
 
 index.html: $(HAML_SRC)
 	haml src/haml/layout.html.haml index.html
+
+alt.html: $(HAML_SRC)
+	haml src/haml/alt.html.haml alt.html	
 
 .SUFFIXES: .css .sass
 
