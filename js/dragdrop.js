@@ -64,6 +64,14 @@ $(function() {
 		// prevent the default action, e.g., following a link
 		return false;
 	});
+	
+	$('#add_button_alt').click(function() {
+		$add_dialog.dialog('open');
+		$('#add_dialog input').blur();
+		// prevent the default action, e.g., following a link
+		return false;
+	});	
+	
 	$alerts_dialog = $('#alerts_list');
 	$alerts_dialog.dialog({
 		autoOpen : false,
@@ -83,6 +91,15 @@ $(function() {
 		// prevent the default action, e.g., following a link
 		return false;
 	});
+	
+	$('#alert_button_alt').click(function() {
+		$alerts_dialog.dialog('open');
+		$('#alerts_list input').blur();
+		// prevent the default action, e.g., following a link
+		return false;
+	});
+
+	
 	$shop_dialog = $('#shopping_list');
 	$shop_dialog.dialog({
 		autoOpen : false,
@@ -112,6 +129,14 @@ $(function() {
 		// prevent the default action, e.g., following a link
 		return false;
 	});
+	$('#list_button_alt').click(function() {
+		$shop_dialog.dialog('open');
+		$('button').blur();
+		// prevent the default action, e.g., following a link
+		return false;
+	});
+
+
 
 	$("li", "#storage").draggable({
 		revert : "invalid", // when not dropped, the item will revert back to its initial position

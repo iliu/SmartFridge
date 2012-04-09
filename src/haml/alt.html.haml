@@ -109,8 +109,8 @@
       /MID SHELF
       .grid_24
         .mid_shelf.grid_2.alpha
-          #alert_button
-          #list_button
+          -# #alert_button
+          -# #list_button
         /STAPLE SECTION  
         #staple.mid_shelf.grid_22.omega
           #staple_prev.prev 
@@ -154,7 +154,9 @@
         .bottom_shelf.grid_5.push_2.omega
           #menu
             %input#search{:value => "search", :size => "24"}
-          #add_button
+          #alert_button_alt
+          #list_button_alt
+          #add_button_alt
           #list
             .drop_text
               Drop here to add item to shopping list
