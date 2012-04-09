@@ -1,3 +1,6 @@
+-# ( must ) -a/b test - change icon to buttons, 
+
+
 %html
   %head
     %title Smart Fridge
@@ -19,7 +22,20 @@
     %script{:type => 'text/javascript', :src => 'js/jquery.mousewheel.js'}
     %script{:type => 'text/javascript', :src => 'js/jquery.jscrollpane.min.js'}            
     %script{:type => 'text/javascript', :src => 'js/dragdrop.js'}
-      
+
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-21450395-1']);
+      _gaq.push(['_setDomainName', 'calnpd.com']); 
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+
     :ruby
        @staple_items = [
         ["Bread", "BREAD.jpg", "out"],
@@ -51,6 +67,15 @@
         ["Peppers", "PEPPERS.jpg", "half"],    
         ["Carrots", "CARROTS.jpg", "half"],    
       ]
+
+      @shopping_list = [
+        ["Onion", "ONION.jpg", "half"],    
+        ["Banana", "BANANA.jpg", "full"],
+        ["Rice", "RICE.jpg", "full"], 
+        ["Watermelon", "WATERMELON.jpg", "out"],
+        ["Potato", "POTATO.jpg", "half"],        
+      ]
+      
       
   %body
 
@@ -119,12 +144,15 @@
             %input#search{:value => "search", :size => "24"}
           #add_button
           #list
+            .drop_text
+              Drop here to add item to shopping list
           #trash
+            .drop_text
+              Drop here to remove item
         
       .clear       
       .spacer_bottom.grid_24   
       .spacer_bottom.grid_24   
-      
       .grid_4.push_8
         %a{:href => "#"}
           %img{:src => "img/iphone.png"}
@@ -134,7 +162,6 @@
           %img{:src => "img/google_play.png"}
       
       .clear
-      
       .spacer_bottom.grid_24   
       
       #bottom_links.grid_24
@@ -149,15 +176,68 @@
       #copyright.grid_24
         SmartFridge &copy; 2012&nbsp;&nbsp;|&nbsp;&nbsp;Designed by Isaac Liu
 
+    #shopping_list.mydialog.hide{:title => "Shopping List"}
+      %ul
+        - @shopping_list.each do |i| 
+          %li
+            %input{:type => 'checkbox'} 
+            = i[0]
 
-    
-    #shopping_list.hide{:title => "Shopping List"}
-
-    #alerts_list.hide{:title => "Alerts"}
+    #alerts_list.mydialog.hide{:title => "Alerts"}
+      %ul
+        %li
+          #itemalert.radioset
+            %input{:type => 'radio', :id => 'item_expire_email', :name => 'radio_expire'}
+            %label{:for => 'item_expire_email'} Email
+            %input{:type => 'radio', :id => 'item_expire_sms', :name => 'radio_expire'}
+            %label{:for => 'item_expire_sms'} SMS
+            %input{:type => 'radio', :id => 'item_expire_web', :name => 'radio_expire', :checked => "checked"}
+            %label{:for => 'item_expire_web'} Web
+          Item expired
+ 
+        %li
+          #staplealert.radioset
+            %input{:type => 'radio', :id => 'staple_expire_email', :name => 'radio_staple'}
+            %label{:for => 'staple_expire_email'} Email
+            %input{:type => 'radio', :id => 'staple_expire_sms', :name => 'radio_staple', :checked => "checked"}
+            %label{:for => 'staple_expire_sms'} SMS
+            %input{:type => 'radio', :id => 'staple_expire_web', :name => 'radio_staple'}
+            %label{:for => 'staple_expire_web'} Web
+          Staple item expiring
+          
+        %li
+          #listalert.radioset
+            %input{:type => 'radio', :id => 'list_expire_email', :name => 'radio_list', :checked => "checked"}
+            %label{:for => 'list_expire_email'} Email
+            %input{:type => 'radio', :id => 'list_expire_sms', :name => 'radio_list'}
+            %label{:for => 'list_expire_sms'} SMS
+            %input{:type => 'radio', :id => 'list_expire_web', :name => 'radio_list'}
+            %label{:for => 'list_expire_web'} Web
+          Recieved shared list
       
-    #add_dialog.hide{:title => "Add Items"}  
-    
-    #item_dialog.hide{:title => "Milk"}  
+    #add_dialog.mydialog.hide{:title => "Add Items"}
+      %input.ui-widget-content.ui-corner-all{:type => "text", :value => " search", :name => "Search", :id => "add_search"}   
+      %ul
+        - @shelf_items.each do |i| 
+          %li
+            .title
+              = i[0]
+            %img{:src => "img/items/#{i[1]}"}
+ 
+
+    #item_dialog.mydialog.hide{:title => "Milk"}
+      %img{:src => 'img/items/MILK.jpg'}
+      #item_description  
+        %label{:for => "quantity"} Quantity
+        #quantity_bar
+        %label{:for => "exp_date"} Expiration Date
+        .ui-widget-content.ui-corner-all
+          %span Saturday, April, 14, 2012 [ in 5 days ] 
+        %label{:for => "tags"} Tags
+        #item_tags
+          %span.ui-state-highlight.ui-corner-all Staple
+          %span.ui-state-default.ui-corner-all Dairy
+
     
 /#body
 /#{::Haml::Engine.new(File.read('src/haml/logger.html.haml'), instance_variable_get(:@haml_buffer).options).render}

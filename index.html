@@ -17,6 +17,20 @@
     <script src='js/jquery.mousewheel.js' type='text/javascript'></script>
     <script src='js/jquery.jscrollpane.min.js' type='text/javascript'></script>
     <script src='js/dragdrop.js' type='text/javascript'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-21450395-1']);
+        _gaq.push(['_setDomainName', 'calnpd.com']); 
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
   </head>
   <body>
     <div class='container_24' id='main-bare'>
@@ -516,8 +530,16 @@
             <input id='search' size='24' value='search' />
           </div>
           <div id='add_button'></div>
-          <div id='list'></div>
-          <div id='trash'></div>
+          <div id='list'>
+            <div class='drop_text'>
+              Drop here to add item to shopping list
+            </div>
+          </div>
+          <div id='trash'>
+            <div class='drop_text'>
+              Drop here to remove item
+            </div>
+          </div>
         </div>
       </div>
       <div class='clear'></div>
@@ -548,10 +570,202 @@
         SmartFridge &copy; 2012&nbsp;&nbsp;|&nbsp;&nbsp;Designed by Isaac Liu
       </div>
     </div>
-    <div class='hide' id='shopping_list' title='Shopping List'></div>
-    <div class='hide' id='alerts_list' title='Alerts'></div>
-    <div class='hide' id='add_dialog' title='Add Items'></div>
-    <div class='hide' id='item_dialog' title='Milk'></div>
+    <div class='mydialog hide' id='shopping_list' title='Shopping List'>
+      <ul>
+        <li>
+          <input type='checkbox' />
+          Onion
+        </li>
+        <li>
+          <input type='checkbox' />
+          Banana
+        </li>
+        <li>
+          <input type='checkbox' />
+          Rice
+        </li>
+        <li>
+          <input type='checkbox' />
+          Watermelon
+        </li>
+        <li>
+          <input type='checkbox' />
+          Potato
+        </li>
+      </ul>
+    </div>
+    <div class='mydialog hide' id='alerts_list' title='Alerts'>
+      <ul>
+        <li>
+          <div class='radioset' id='itemalert'>
+            <input id='item_expire_email' name='radio_expire' type='radio' />
+            <label for='item_expire_email'>Email</label>
+            <input id='item_expire_sms' name='radio_expire' type='radio' />
+            <label for='item_expire_sms'>SMS</label>
+            <input checked='checked' id='item_expire_web' name='radio_expire' type='radio' />
+            <label for='item_expire_web'>Web</label>
+          </div>
+          Item expired
+        </li>
+        <li>
+          <div class='radioset' id='staplealert'>
+            <input id='staple_expire_email' name='radio_staple' type='radio' />
+            <label for='staple_expire_email'>Email</label>
+            <input checked='checked' id='staple_expire_sms' name='radio_staple' type='radio' />
+            <label for='staple_expire_sms'>SMS</label>
+            <input id='staple_expire_web' name='radio_staple' type='radio' />
+            <label for='staple_expire_web'>Web</label>
+          </div>
+          Staple item expiring
+        </li>
+        <li>
+          <div class='radioset' id='listalert'>
+            <input checked='checked' id='list_expire_email' name='radio_list' type='radio' />
+            <label for='list_expire_email'>Email</label>
+            <input id='list_expire_sms' name='radio_list' type='radio' />
+            <label for='list_expire_sms'>SMS</label>
+            <input id='list_expire_web' name='radio_list' type='radio' />
+            <label for='list_expire_web'>Web</label>
+          </div>
+          Recieved shared list
+        </li>
+      </ul>
+    </div>
+    <div class='mydialog hide' id='add_dialog' title='Add Items'>
+      <input class='ui-widget-content ui-corner-all' id='add_search' name='Search' type='text' value=' search' />
+      <ul>
+        <li>
+          <div class='title'>
+            Chicken
+          </div>
+          <img src='img/items/CHICKEN.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Bacon
+          </div>
+          <img src='img/items/BACON.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Broccoli
+          </div>
+          <img src='img/items/BROCCOLI.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Banana
+          </div>
+          <img src='img/items/BANANA.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Onion
+          </div>
+          <img src='img/items/ONION.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Pasta
+          </div>
+          <img src='img/items/PASTA.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Lettuce
+          </div>
+          <img src='img/items/LETTUCE.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Honey
+          </div>
+          <img src='img/items/HONEY.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Salmon
+          </div>
+          <img src='img/items/SALMON.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Rice
+          </div>
+          <img src='img/items/RICE.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Potato
+          </div>
+          <img src='img/items/POTATO.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Peas
+          </div>
+          <img src='img/items/PEAS.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Strawberry
+          </div>
+          <img src='img/items/STRAWBERRY.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Watermelon
+          </div>
+          <img src='img/items/WATERMELON.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Corn
+          </div>
+          <img src='img/items/CORN.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Lemon
+          </div>
+          <img src='img/items/LEMON.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Yogurt
+          </div>
+          <img src='img/items/YOGURT.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Peppers
+          </div>
+          <img src='img/items/PEPPERS.jpg' />
+        </li>
+        <li>
+          <div class='title'>
+            Carrots
+          </div>
+          <img src='img/items/CARROTS.jpg' />
+        </li>
+      </ul>
+    </div>
+    <div class='mydialog hide' id='item_dialog' title='Milk'>
+      <img src='img/items/MILK.jpg' />
+      <div id='item_description'>
+        <label for='quantity'>Quantity</label>
+        <div id='quantity_bar'></div>
+        <label for='exp_date'>Expiration Date</label>
+        <div class='ui-widget-content ui-corner-all'>
+          <span>Saturday, April, 14, 2012 [ in 5 days ]</span>
+        </div>
+        <label for='tags'>Tags</label>
+        <div id='item_tags'>
+          <span class='ui-state-highlight ui-corner-all'>Staple</span>
+          <span class='ui-state-default ui-corner-all'>Dairy</span>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 <!-- #body -->

@@ -33,14 +33,14 @@ li {
 
 #main {
   background-image: url("../img/main.png");
+  background-attachment: fixed;
   background-position-y: -60px;
   background-repeat: no-repeat;
   min-height: 900px; }
 
 #main-bare {
   background-image: url("../img/main_bare.png");
-  background-position-y: 28px;
-  background-position-x: 33px;
+  background-position: 33px 28px;
   background-repeat: no-repeat;
   min-height: 900px; }
 
@@ -91,24 +91,24 @@ li {
 
 #staple .disabled {
   visibility: hidden; }
-#staple .prev {
+#staple #staple_prev {
   background-image: url("../img/left.png");
   background-position-x: -4px;
   position: absolute;
   top: 194px;
   height: 100px;
   width: 33px; }
-#staple .prev:hover {
+#staple #staple_prev:hover {
   background-image: url("../img/left_hover.png");
   cursor: pointer; }
-#staple .next {
+#staple #staple_next {
   background-image: url("../img/right.png");
   position: absolute;
   top: 194px;
   margin-left: 800px;
   height: 100px;
   width: 33px; }
-#staple .next:hover {
+#staple #staple_next:hover {
   background-image: url("../img/right_hover.png");
   cursor: pointer; }
 #staple #staple_list {
@@ -150,8 +150,8 @@ li {
   #menu #search {
     background-color: transparent;
     border: 0px;
-    margin-left: 15px;
-    margin-top: 3px;
+    margin-left: 12px;
+    margin-top: 8px;
     background-image: url("../img/search.png");
     background-repeat: no-repeat;
     padding: 7px;
@@ -160,14 +160,24 @@ li {
 #add_button {
   background-image: url("../img/add.png");
   background-repeat: no-repeat;
-  height: 55px;
+  height: 80px;
   width: 150px;
   margin-left: 14px;
-  margin-top: 3px; }
+  margin-top: -30px;
+  padding-bottom: 8px; }
 
 #add_button:hover {
   background-image: url("../img/add_hover.png");
   cursor: pointer; }
+
+.drop_text {
+  position: relative;
+  width: 105px;
+  color: #333333;
+  text-align: center;
+  left: 40px;
+  top: 30px;
+  font-weight: bold; }
 
 #list {
   background-image: url("../img/shopping_base.png");
@@ -197,9 +207,9 @@ li {
 #trash.trash_hover {
   background-image: url("../img/trash_hover.png"); }
 
-#bottom li:hover {
+#bottom li:hover, #add_dialog li:hover {
   cursor: move; }
-#bottom li {
+#bottom li, #add_dialog li {
   background-image: url("../img/shelf_icon_back.png");
   background-repeat: no-repeat;
   float: left;
@@ -207,17 +217,17 @@ li {
   padding-right: 5px;
   width: 100px;
   height: 100px; }
-  #bottom li img {
+  #bottom li img, #add_dialog li img {
     padding-left: 8px;
     width: 80;
     height: 60; }
-  #bottom li .title {
+  #bottom li .title, #add_dialog li .title {
     padding-right: 6px;
     text-align: center; }
-  #bottom li .toolbar {
+  #bottom li .toolbar, #add_dialog li .toolbar {
     padding-right: 8px;
     padding-left: 4px; }
-    #bottom li .toolbar .anchor {
+    #bottom li .toolbar .anchor, #add_dialog li .toolbar .anchor {
       float: right; }
 
 #shelf {
@@ -253,8 +263,38 @@ li {
   position: absolute;
   top: 330px;
   text-align: center;
-  opacity: 0.7;
-  filter: alpha(opacity=70); }
+  opacity: 0.8;
+  filter: alpha(opacity=80); }
   #alert span {
     margin: 0 auto;
     padding: 5px 20px; }
+
+#alerts_list ul {
+  margin-bottom: 0;
+  padding-bottom: 0; }
+#alerts_list li {
+  padding: 10px 0px; }
+#alerts_list .radioset {
+  float: right; }
+
+#add_dialog input {
+  margin-bottom: 10px;
+  padding: 5px; }
+#add_dialog ul {
+  height: 230px;
+  overflow: auto;
+  margin-bottom: 0;
+  padding-bottom: 15px; }
+
+#item_dialog label {
+  padding: 3px 0px;
+  display: block; }
+#item_dialog span {
+  padding: 0px 10px;
+  display: inline-block; }
+
+#shopping_list ul {
+  padding-bottom: 0;
+  margin-bottom: 0; }
+#shopping_list li {
+  padding: 3px 0; }

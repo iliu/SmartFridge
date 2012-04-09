@@ -5,7 +5,6 @@ body
   color: #333
   font-size: 11px
   height: auto
-
 li
   list-style-type: none
 
@@ -29,15 +28,17 @@ li
 
 #main
   background-image: url('../img/main.png')
+  background-attachment: fixed
   background-position-y: -60px
   background-repeat: no-repeat 
   min-height: 900px 
+  
 #main-bare
   background-image: url('../img/main_bare.png')
-  background-position-y: 28px
-  background-position-x: 33px
+  background-position: 33px 28px
   background-repeat: no-repeat 
-  min-height: 900px 
+  min-height: 900px
+   
 .hide
   display: none 
 .spacer_top
@@ -82,24 +83,24 @@ li
 #staple
   .disabled
     visibility: hidden
-  .prev
+  #staple_prev
     background-image: url('../img/left.png')
     background-position-x: -4px
     position: absolute
     top: 194px
     height: 100px
     width: 33px
-  .prev:hover
+  #staple_prev:hover
     background-image: url('../img/left_hover.png')
     cursor: pointer
-  .next
+  #staple_next
     background-image: url('../img/right.png')
     position: absolute
     top: 194px
     margin-left: 800px
     height: 100px
     width: 33px
-  .next:hover
+  #staple_next:hover
     background-image: url('../img/right_hover.png')
     cursor: pointer
         
@@ -132,7 +133,6 @@ li
           float: right
           padding-right: 5px
 
-
 .bottom_shelf
   min-height: 380px
 
@@ -143,8 +143,8 @@ li
   #search
     background-color: transparent
     border: 0px
-    margin-left: 15px
-    margin-top: 3px
+    margin-left: 12px
+    margin-top: 8px
     background-image: url('../img/search.png')
     background-repeat: no-repeat
     padding: 7px 
@@ -153,13 +153,24 @@ li
 #add_button
   background-image: url('../img/add.png')
   background-repeat: no-repeat
-  height: 55px
+  height: 80px
   width: 150px
   margin-left: 14px
-  margin-top: 3px
+  margin-top: -30px
+  padding-bottom: 8px
 #add_button:hover
   background-image: url('../img/add_hover.png')
   cursor: pointer
+
+.drop_text
+  position: relative
+  width: 105px
+  color: #333
+  text-align: center
+  left: 40px
+  top: 30px
+  font-weight: bold
+
 
 #list
   background-image: url('../img/shopping_base.png')
@@ -186,7 +197,7 @@ li
 #trash.trash_hover
   background-image: url('../img/trash_hover.png')
 
-#bottom
+#bottom, #add_dialog
   li:hover
     cursor: move  
   li
@@ -243,10 +254,43 @@ li
   position: absolute
   top: 330px
   text-align: center
-  opacity: 0.7
-  filter: alpha(opacity=70)  // For IE8 and earlier 
+  opacity: 0.8
+  filter: alpha(opacity=80)  // For IE8 and earlier 
   span
     margin: 0 auto
     padding: 5px 20px
 
+#alerts_list
+  ul
+    margin-bottom: 0
+    padding-bottom: 0
+    
+  li
+    padding: 10px 0px
+  .radioset
+    float: right
   
+#add_dialog
+  input
+    margin-bottom: 10px
+    padding: 5px
+  ul
+    height: 230px
+    overflow: auto
+    margin-bottom: 0
+    padding-bottom: 15px    
+
+#item_dialog
+  label
+    padding: 3px 0px
+    display: block
+  span
+    padding: 0px 10px
+    display: inline-block
+  
+#shopping_list
+  ul
+    padding-bottom: 0
+    margin-bottom: 0
+  li
+    padding: 3px 0
