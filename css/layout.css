@@ -332,8 +332,17 @@ li {
   padding: 0px 10px;
   display: inline-block; }
 
+#shopping_list #add_shop_item {
+  float: right;
+  margin-top: 8px; }
 #shopping_list ul {
   padding-bottom: 0;
   margin-bottom: 0; }
 #shopping_list li {
   padding: 3px 0; }
+#shopping_list h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #cccccc;
+  padding-left: 3px;
+  padding-right: 3px; }

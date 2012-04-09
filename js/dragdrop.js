@@ -13,6 +13,7 @@ $(function() {
 	$( "#quantity_bar" ).progressbar({
 		value: 68,
 	});
+	$('#add_shop_item').button();
 
 	
 	$('#main-bare').css('backgroundPosition', '33px 28px');

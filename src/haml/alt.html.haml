@@ -85,6 +85,11 @@
         ["Potato", "POTATO.jpg", "half"],        
       ]
       
+      @shopping_list_others = [
+        ["Yarn", "ONION.jpg", "half"],    
+        ["Scissors", "ONION.jpg", "half"],    
+        ["Emily's Birthday Gift", "ONION.jpg", "half"],    
+      ]
       
   %body
 
@@ -188,8 +193,16 @@
         SmartFridge &copy; 2012&nbsp;&nbsp;|&nbsp;&nbsp;Designed by Isaac Liu
 
     #shopping_list.mydialog.hide{:title => "Shopping List"}
+      %h2 Groceries   
       %ul
         - @shopping_list.each do |i| 
+          %li
+            %input{:type => 'checkbox'} 
+            = i[0]
+      %button#add_shop_item{:type => 'button'} Add Item 
+      %h2 Others   
+      %ul
+        - @shopping_list_others.each do |i| 
           %li
             %input{:type => 'checkbox'} 
             = i[0]

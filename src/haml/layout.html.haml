@@ -114,7 +114,11 @@
         ["Potato", "POTATO.jpg", "half"],        
       ]
       
-      
+      @shopping_list_others = [
+        ["Yarn", "ONION.jpg", "half"],    
+        ["Scissors", "ONION.jpg", "half"],    
+        ["Emily's Birthday Gift", "ONION.jpg", "half"],    
+      ]
   %body
 
     #main-bare.container_24
@@ -215,11 +219,20 @@
         SmartFridge &copy; 2012&nbsp;&nbsp;|&nbsp;&nbsp;Designed by Isaac Liu
 
     #shopping_list.mydialog.hide{:title => "Shopping List"}
+      %h2 Groceries   
       %ul
         - @shopping_list.each do |i| 
           %li
             %input{:type => 'checkbox'} 
             = i[0]
+      %button#add_shop_item{:type => 'button'} Add Item 
+      %h2 Others   
+      %ul
+        - @shopping_list_others.each do |i| 
+          %li
+            %input{:type => 'checkbox'} 
+            = i[0]
+
 
     #alerts_list.mydialog.hide{:title => "Alerts"}
       %ul
@@ -254,7 +267,7 @@
           Recieved shared list
       
     #add_dialog.mydialog.hide{:title => "Add Items"}
-      %input.ui-widget-content.ui-corner-all{:type => "text", :value => " search", :name => "Search", :id => "add_search"}   
+      %input.ui-widget-content.ui-corner-all{:type => "text", :value => " search", :name => "Search", :id => "add_search"}
       %ul
         - @shelf_items.each do |i| 
           %li
