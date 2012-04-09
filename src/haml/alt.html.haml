@@ -196,7 +196,7 @@
       %h2 Groceries   
       %ul
         - @shopping_list.each do |i| 
-          %li
+          %li{:id => "list_#{i[0]}"}
             %input{:type => 'checkbox'} 
             = i[0]
       %button#add_shop_item{:type => 'button'} Add Item 

@@ -127,12 +127,18 @@ $(function() {
 	$('#list_button').click(function() {
 		$shop_dialog.dialog('open');
 		$('button').blur();
+		$('#list_Onion').effect("highlight", {}, 1000);
+		$('#list_Watermelon').effect("highlight", {}, 1000);
+		$('#list_Banana').effect("highlight", {}, 1000);		
 		// prevent the default action, e.g., following a link
 		return false;
 	});
 	$('#list_button_alt').click(function() {
 		$shop_dialog.dialog('open');
 		$('button').blur();
+		$('#list_Onion').effect("highlight", {}, 1000);
+		$('#list_Watermelon').effect("highlight", {}, 1000);
+		$('#list_Banana').effect("highlight", {}, 1000);
 		// prevent the default action, e.g., following a link
 		return false;
 	});
