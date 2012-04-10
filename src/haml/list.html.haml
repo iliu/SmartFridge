@@ -1,0 +1,71 @@
+%html
+  %head
+    :erb
+      <!-- Google Website Optimizer Tracking Script -->
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['gwo._setAccount', 'UA-18842105-3']);
+        _gaq.push(['gwo._trackPageview', '/0395373515/goal']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+      <!-- End of Google Website Optimizer Tracking Script -->
+
+    %title Shopping List
+    
+    /Stylesheets
+    %link{:rel => "stylesheet", :href => "css/reset.css"}
+    %link{:rel => "stylesheet", :href => "css/text.css"}
+    %link{:rel => "stylesheet", :href => "css/custom-theme/jquery-ui-1.8.18.custom.css"}
+    %link{:rel => "stylesheet", :href => "css/list.css"}
+    
+    /Javascripts
+    %script{:type => 'text/javascript', :src => 'js/jquery-1.7.1.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/jquery-ui-1.8.18.custom.min.js'}
+    -# %script{:type => 'text/javascript', :src => 'js/dragdrop.js'}
+
+    :ruby
+      @shopping_list = [
+        ["Onion", "ONION.jpg", "half"],    
+        ["Banana", "BANANA.jpg", "full"],
+        ["Rice", "RICE.jpg", "full"], 
+        ["Watermelon", "WATERMELON.jpg", "out"],
+        ["Potato", "POTATO.jpg", "half"],        
+      ]
+      
+      @shopping_list_others = [
+        ["Yarn", "ONION.jpg", "half"],    
+        ["Scissors", "ONION.jpg", "half"],    
+        ["Emily's Birthday Gift", "ONION.jpg", "half"],    
+      ]
+    :javascript
+      $(function() {
+        $('#add_shop_item').button();
+        $('#list_Onion').effect("highlight", {}, 1000);
+        $('#list_Watermelon').effect("highlight", {}, 1000);
+        $('#list_Banana').effect("highlight", {}, 1000);
+      });
+  %body
+    #shopping_list.mydialog.ui-dialog-content.ui-widget-content{:title => "Shopping List"}
+      %h2 Groceries   
+      %ul
+        - @shopping_list.each do |i| 
+          %li{:id => "list_#{i[0]}"}
+            %input{:type => 'checkbox'} 
+            = i[0]
+      %button#add_shop_item{:type => 'button'} Add Item 
+      %h2 Others   
+      %ul
+        - @shopping_list_others.each do |i| 
+          %li
+            %input{:type => 'checkbox'} 
+            = i[0]
+
+
+
+    
+/#body
+/#{::Haml::Engine.new(File.read('src/haml/logger.html.haml'), instance_variable_get(:@haml_buffer).options).render}

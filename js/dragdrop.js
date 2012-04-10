@@ -13,8 +13,6 @@ $(function() {
 	$( "#quantity_bar" ).progressbar({
 		value: 68,
 	});
-	$('#add_shop_item').button();
-
 	
 	$('#main-bare').css('backgroundPosition', '33px 28px');
 	
@@ -125,20 +123,14 @@ $(function() {
 		// return false;
 	// });
 	$('#list_button').click(function() {
-		$shop_dialog.dialog('open');
+		$shop_dialog.load('list.html').dialog('open');
 		$('button').blur();
-		$('#list_Onion').effect("highlight", {}, 1000);
-		$('#list_Watermelon').effect("highlight", {}, 1000);
-		$('#list_Banana').effect("highlight", {}, 1000);		
 		// prevent the default action, e.g., following a link
 		return false;
 	});
 	$('#list_button_alt').click(function() {
-		$shop_dialog.dialog('open');
+		$shop_dialog.load('list.html').dialog('open');
 		$('button').blur();
-		$('#list_Onion').effect("highlight", {}, 1000);
-		$('#list_Watermelon').effect("highlight", {}, 1000);
-		$('#list_Banana').effect("highlight", {}, 1000);
 		// prevent the default action, e.g., following a link
 		return false;
 	});
