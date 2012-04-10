@@ -219,6 +219,19 @@
         SmartFridge &copy; 2012&nbsp;&nbsp;|&nbsp;&nbsp;Designed by Isaac Liu
 
     #shopping_list
+      %h2 Groceries   
+      %ul
+        - @shopping_list.each do |i| 
+          %li{:id => "list_#{i[0]}"}
+            %input{:type => 'checkbox'} 
+            = i[0]
+      %button#add_shop_item{:type => 'button'} Add Item 
+      %h2 Others   
+      %ul
+        - @shopping_list_others.each do |i| 
+          %li
+            %input{:type => 'checkbox'} 
+            = i[0]
 
     #alerts_list.mydialog.hide{:title => "Alerts"}
       %ul
